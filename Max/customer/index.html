@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIIMA - Where intelligence meets sound</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{ --ink:#262626; --muted:#262626; --line:rgba(38,38,38,0.18); --bg:#B6935D; --sans:"DM Sans",sans-serif; --serif:"Playfair Display",serif; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{background:var(--bg);color:var(--ink);font-family:var(--sans)}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-bottom:1px solid var(--line)}
+    .hero{text-align:center;padding:80px 20px}
+    
+.hero h1 {
+    color: #D4AF37; /* Original gold */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hero h1:hover {
+    color: #262626; /* Hover lettering color */
+}
+
+    .hero p{color:var(--muted);margin-top:20px;font-size:18px;line-height:1.5}
+    .btn{background:rgba(38,38,38,0.12);color:var(--ink);padding:14px 32px;border-radius:999px;border:1px solid var(--line);margin-top:32px;font-weight:500;cursor:pointer}
+    .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+    .card{background:var(--bg);padding:32px;cursor:pointer;transition:0.3s}
+    .card:hover{background:rgba(38,38,38,0.08)}
+    /* Popup Style */
+    #popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;z-index:1000;padding:20px}
+    #popup-box{background:var(--bg);border:1px solid var(--line);padding:40px;max-width:600px;width:100%;border-radius:16px;position:relative;color:var(--ink)}
+    #popup-close{position:absolute;top:15px;right:20px;font-size:24px;cursor:pointer;color:var(--muted)}
+    #popup-title{font-family:var(--serif);font-size:28px;margin-bottom:16px}
+    #popup-content{color:var(--muted);font-size:15px;line-height:1.7;white-space:pre-line}
+  </style>
+</head>
+<body>
+  <nav><h2 style="font-family:var(--serif);letter-spacing:3px">SIIMA</h2><div style="color:var(--muted)">Menu</div></nav>
+  <div class="hero">
+    <h1>Where intelligence<br><span>meets sound</span></h1>
+    <p>SIIMA celebrates the most compelling expressions<br>of music created with artificial intelligence.</p>
+    <button class="btn">Explore Awards →</button>
+  </div>
+
+  <div style="padding:60px 40px 20px 40px;display:flex;justify-content:space-between;">
+    <div style="color:var(--muted);font-size:13px;letter-spacing:2px;">FEATURES / 09 - CLICK TO VIEW</div>
+    <div style="font-family:var(--serif);font-size:22px;">Everything you need to create</div>
+  </div>
+
+  <div class="grid">
+    <div class="card" onclick="openPopup(0)"><div style="color:var(--muted);font-size:11px;">01</div><div style="margin-top:16px;font-size:18px;">AI Composition</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(1)"><div style="color:var(--muted);font-size:11px;">02</div><div style="margin-top:16px;font-size:18px;">Sound Engine</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(2)"><div style="color:var(--muted);font-size:11px;">03</div><div style="margin-top:16px;font-size:18px;">Vocal AI</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(3)"><div style="color:var(--muted);font-size:11px;">04</div><div style="margin-top:16px;font-size:18px;">Live Collab</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(4)"><div style="color:var(--muted);font-size:11px;">05</div><div style="margin-top:16px;font-size:18px;">Awards Access</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(5)"><div style="color:var(--muted);font-size:11px;">06</div><div style="margin-top:16px;font-size:18px;">Rights & Royalties</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(6)"><div style="color:var(--muted);font-size:11px;">07</div><div style="margin-top:16px;font-size:18px;">Mastering</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(7)"><div style="color:var(--muted);font-size:11px;">08</div><div style="margin-top:16px;font-size:18px;">Community</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+    <div class="card" onclick="openPopup(8)"><div style="color:var(--muted);font-size:11px;">09</div><div style="margin-top:16px;font-size:18px;">Distribution</div><div style="margin-top:12px;color:var(--muted);font-size:13px;">Click to view details →</div></div>
+  </div>
+
+  <!-- POPUP -->
+  <div id="popup">
+    <div id="popup-box">
+      <div id="popup-close" onclick="closePopup()">×</div>
+      <div id="popup-title"></div>
+      <div id="popup-content"></div>
+    </div>
+  </div>
+
+<script>
+const data = [
+  {title:"01 / AI Composition", content:`1. AI will generate original melodies in seconds based on your mood.
+2. You can give input like "sad Tamil melody" and it will create.
+3. Human and AI co-creation - you can edit any note after generation.
+4. Supports 50+ genres from Classical to Hip-Hop to EDM.
+5. No music theory needed, beginners can also create easily.
+6. Export as MIDI, WAV, MP3 in one click.
+7. AI learns your personal style over time.
+8. Real-time composition - see notes while AI creates.
+9. Collaboration mode - share your composition link.
+10. This is the future of music creation with SIIMA.`},
+  {title:"02 / Sound Engine", content:`1. Premium sound textures from top Hollywood sound designers.
+2. 1000+ instruments - Piano, Guitar, Synth, Strings all included.
+3. Studio quality 24-bit / 48kHz audio processing.
+4. Custom sound design - create your own unique texture.
+5. Built-in effects like Reverb, Delay, Distortion.
+6. CPU very low - works even in your Lenovo laptop smoothly.
+7. No latency - play live instruments without delay.
+8. Supports VST plugins from outside.
+9. AI will suggest best sound for your track automatically.
+10. Export ready for Spotify standards.`},
+  {title:"03 / Vocal AI", content:`1. Generate human-like vocals in any language - Tamil, English, Hindi.
+2. Choose from 100+ voice models - male, female, child voices.
+3. You can clone your own voice with just 30 sec sample.
+4. Lyrics to song in one click - type lyrics, get singing.
+5. Emotional control - happy, sad, energetic style.
+6. No auto-tune needed, perfect pitch from AI.
+7. Duet mode - create two voices singing together.
+8. Rap and Melody both supported.
+9. Copyright free vocals - 100% yours.
+10. Used by top artists for demo tracks.`},
+  {title:"04 / Live Collab", content:`1. Invite your friend via link, both can edit same track live.
+2. See cursor of other person like Google Docs for music.
+3. Video call inside the studio - no need for Zoom.
+4. Version history - go back to any old version anytime.
+5. Chat inside - comment on specific notes.
+6. Works on mobile also - collab from phone.
+7. Cloud sync - auto save every 5 seconds.
+8. Team roles - Admin, Editor, Viewer permissions.
+9. Share to community to get feedback from others.
+10. Perfect for remote music production.`},
+  {title:"05 / Awards Access", content:`1. Direct submission to SIIMA Awards from your dashboard.
+2. Categories like Best AI Composition, Best Vocal AI etc.
+3. Jury includes Grammy winning producers.
+4. Winners get cash prize + record label deal.
+5. Exposure to 1M+ listeners on SIIMA platform.
+6. Certificate and trophy for all finalists.
+7. Networking with top AI artists worldwide.
+8. Past winners got Spotify editorial playlist.
+9. No entry fee for first 3 submissions.
+10. This is your chance to become global AI artist.`},
+  {title:"06 / Rights & Royalties", content:`1. 100% rights stay with you - we take 0% ownership.
+2. AI generated music is also legally yours - full copyright.
+3. Built-in blockchain proof - proves you created first.
+4. Royalty split tool - auto split with collaborators.
+5. Transparent earnings dashboard - see every rupee.
+6. Monthly payout to bank account / UPI.
+7. No hidden fees - what you see is what you get.
+8. Legal support for copyright issues.
+9. You can sell your beats in SIIMA marketplace.
+10. Artists already earned $500k+ total royalties.`},
+  {title:"07 / Mastering", content:`1. One-click AI mastering - makes your track loud and clear.
+2. Analyzes your track and applies EQ, Compression auto.
+3. Reference track option - "make it sound like this song".
+4. 3 styles - Warm, Balanced, Loud for Spotify.
+5. Done in 30 seconds, no need to wait for engineer.
+6. Preview before and after mastering.
+7. Unlimited mastering - master any number of tracks.
+8. Same quality as $100 studio mastering.
+9. Loudness standards for Spotify, Apple Music, YouTube.
+10. Your track will sound professional instantly.`},
+  {title:"08 / Community", content:`1. 10,000+ AI music creators from 50+ countries.
+2. Daily feedback sessions - post track, get reviews.
+3. Find collaborators - singer, producer, lyricist.
+4. Weekly challenges with prizes.
+5. Discord and WhatsApp groups active 24/7.
+6. Learn from top artists via live workshops.
+7. Job board - get freelance music projects.
+8. Showcase your profile - like Instagram for musicians.
+9. No toxicity - only supportive feedback.
+10. Many artists found their music partner here.`},
+  {title:"09 / Distribution", content:`1. One-click distribution to Spotify, Apple Music, YouTube Music.
+2. Also to Instagram Reels, JioSaavn, Wynk etc - 150+ platforms.
+3. Release in 24-48 hours, fastest in industry.
+4. Keep 100% royalties - we take only small fee.
+5. Schedule release - set future date and time.
+6. Auto generate Spotify Canvas and cover art.
+7. ISRC and UPC codes free included.
+8. Real-time stats - see streams from all platforms.
+9. Content ID - protect your music on YouTube.
+10. Your music will be live worldwide in 2 days.`}
+];
+
+function openPopup(i){
+  document.getElementById('popup-title').innerText = data[i].title;
+  document.getElementById('popup-content').innerText = data[i].content;
+  document.getElementById('popup').style.display='flex';
+}
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+</script>
+
+</body>
+</ht
