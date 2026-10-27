@@ -487,7 +487,7 @@ function Eyebrow({ children }) {
 }
 
 function HomePage() {
-  const [isNavigationOpen, setIsNavigationOpen] = useState(true);
+  const [isNavigationOpen, setIsNavigationOpen] = useState(false);
 
   return (
     <div className={`home-layout${isNavigationOpen ? "" : " home-layout-nav-closed"}`}>
