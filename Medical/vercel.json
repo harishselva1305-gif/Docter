@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/work/point-1", "destination": "/topic.html?topic=point-1" },
+    { "source": "/work/point-2", "destination": "/topic.html?topic=point-2" },
+    { "source": "/work/point-3", "destination": "/topic.html?topic=point-3" },
+    { "source": "/work/point-4", "destination": "/topic.html?topic=point-4" },
+    { "source": "/work/point-5", "destination": "/topic.html?topic=point-5" },
+    { "source": "/work/point-6", "destination": "/topic.html?topic=point-6" },
+    { "source": "/work/point-7", "destination": "/topic.html?topic=point-7" },
+    { "source": "/work/point-8", "destination": "/topic.html?topic=point-8" },
+    { "source": "/work/point-9", "destination": "/topic.html?topic=point-9" }
+  ]
+}

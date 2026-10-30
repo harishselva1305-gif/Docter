@@ -26,13 +26,13 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#f8f5ef;color:#171511;font-family:var(--site-font-body);line-height:1.65}
 button,a,input,textarea{font:inherit}
 img,svg,video{max-width:100%;height:auto}
-html,body{width:100%;overflow-x:hidden}
+html,body{width:100%;overflow-x:clip}
 section[id]{scroll-margin-top:18px}
 button,a,input,textarea{ -webkit-tap-highlight-color:transparent }
 :focus-visible{outline:2px solid var(--site-primary);outline-offset:4px}
 a{color:inherit;text-decoration:none}
-#app{min-height:100vh;background-color:var(--site-background);color:var(--site-on-background);border-radius:0;overflow:hidden;position:relative}
-.site-header{height:92px;max-width:1240px;margin:auto;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5}
+#app{min-height:100vh;background-color:var(--site-background);color:var(--site-on-background);border-radius:0;position:relative}
+.site-header{height:92px;max-width:1240px;margin:auto;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--site-background);z-index:20}
 .brand{display:flex;align-items:center}
 .brand-logo{display:block;width:200px;height:auto}
 .menu-button{border:0;background:transparent;color:inherit;width:46px;height:46px;display:grid;place-items:center;cursor:pointer}
@@ -41,7 +41,7 @@ a{color:inherit;text-decoration:none}
 .nav-panel{display:none;position:absolute;right:5%;top:78px;background:var(--site-background);border:1px solid #d9cba8;padding:22px 28px;min-width:220px;box-shadow:0 18px 45px #00000012}
 .nav-panel.open{display:grid;gap:14px}
 .nav-panel a{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
-.hero{max-width:1240px;margin:0 auto;padding:clamp(72px,11vw,155px) 8% clamp(90px,12vw,160px);position:relative}
+.hero{max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,100px) 8% clamp(56px,8vw,112px);position:relative}
 .hero:after{content:"";position:absolute;right:-7%;top:4%;width:45%;height:92%;opacity:var(--site-decoration-opacity);pointer-events:none;background:repeating-radial-gradient(ellipse at 100% 45%,transparent 0 13px,#c8b47e35 14px 15px,transparent 16px 24px);mask-image:linear-gradient(90deg,transparent,black 45%,black);z-index:0}
 .hero-content{position:relative;z-index:1;max-width:850px}
 .eyebrow{font-family:var(--site-font-heading);color:var(--site-primary);letter-spacing:.22em;text-transform:uppercase;font-size:14px;margin:0 0 20px}
@@ -49,18 +49,18 @@ h1,h2,h3{font-family:var(--site-font-heading);font-weight:400;line-height:1.04;l
 h1{font-size:clamp(48px,8.5vw,100px);margin:0 0 24px;max-width:800px}
 .hero-subtitle{font-family:var(--site-font-heading);font-size:clamp(22px,3vw,35px);line-height:1.35;margin:0 0 28px}
 .gold{color:var(--site-primary)}
-.tags{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:35px 0 54px}
+.tags{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:26px 0 34px}
 .tags i{width:4px;height:4px;border-radius:50%;background:var(--site-primary);display:inline-block}
 .hero-copy{font-size:clamp(16px,1.7vw,20px);line-height:1.9;max-width:650px;margin:0 0 18px}
 .outline-button{margin-top:20px;border:1px solid var(--site-primary);padding:16px 22px;display:inline-flex;align-items:center;justify-content:space-between;gap:42px;letter-spacing:.18em;font-size:12px;font-weight:700;transition:background .2s,color .2s}
 .outline-button:hover{background:var(--site-primary);color:#171511}
 .outline-button b{font-size:26px;font-weight:400;line-height:1}
-.section{padding:90px 8%;max-width:1240px;margin:auto;position:relative}
-.section-head{max-width:760px;margin-bottom:52px}
+.section{padding:64px 8%;max-width:1240px;margin:auto;position:relative}
+.section-head{max-width:760px;margin-bottom:36px}
 .section-title{font-size:clamp(42px,6vw,72px);margin:0 0 16px}
 .section-sub{font-size:17px;max-width:600px;margin:0;color:#57534c}
 .work-list{border-top:1px solid #c8bfae}
-.work-item{display:grid;grid-template-columns:70px 1fr 32px;gap:20px;align-items:center;padding:25px 0;border-bottom:1px solid #d9d1c3;cursor:pointer;transition:padding .2s}
+.work-item{display:grid;grid-template-columns:70px 1fr 32px;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid #d9d1c3;cursor:pointer;transition:padding .2s}
 .work-item:hover{padding-left:8px}
 .work-num{font-family:var(--site-font-heading);font-size:30px;color:var(--site-primary)}
 .work-name{font-family:var(--site-font-heading);font-size:clamp(22px,3vw,34px);letter-spacing:-.02em}
@@ -75,18 +75,13 @@ h1{font-size:clamp(48px,8.5vw,100px);margin:0 0 24px;max-width:800px}
 .split p{font-size:17px;line-height:1.9;margin:0 0 20px}
 .soft-panel{background:var(--site-secondary);color:var(--site-on-secondary);padding:clamp(26px,5vw,54px);position:relative}
 .soft-panel:after{content:"";position:absolute;inset:14px;border:1px solid #b99a5155;pointer-events:none}
-.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d8cdb9;border:1px solid #d8cdb9;margin-top:36px}
-.principle{background:var(--site-background);padding:28px}
-.principle small{color:var(--site-primary);letter-spacing:.14em;font-size:11px}
-.principle h3{font-size:27px;margin:15px 0}
-.principle p{font-size:14px;line-height:1.8;margin:0;color:#57534c}
 footer{padding:24px 8%;display:flex;justify-content:space-between;gap:20px;max-width:1240px;margin:auto;font-size:12px;letter-spacing:.06em;color:#5c574e}
 @media(max-width:700px){
  .site-header{height:72px;padding:0 5%;}.brand-logo{width:185px}.menu-button{width:44px;height:44px}.nav-panel{top:64px;right:5%;left:5%;min-width:0;padding:20px 22px;z-index:10}.nav-panel a{padding:8px 0}
- .hero{padding:58px 6% 72px}.hero:after{right:-35%;width:85%;height:75%;top:8%;opacity:.55}h1{font-size:clamp(43px,12vw,64px);overflow-wrap:anywhere}.eyebrow{font-size:11px;letter-spacing:.17em;margin-bottom:16px}.hero-subtitle{font-size:clamp(21px,6vw,28px)}.hero-copy{font-size:16px;line-height:1.8}.outline-button{width:100%;max-width:320px;padding:15px 16px;gap:12px;font-size:11px;letter-spacing:.12em}
- .tags{margin:25px 0 32px;gap:8px;font-size:9px;letter-spacing:.1em}
- .section{padding:54px 6%}.section-head{margin-bottom:32px}.section-title{font-size:clamp(40px,11vw,56px)}.section-sub{font-size:15px}.work-item{grid-template-columns:36px minmax(0,1fr) 22px;gap:9px;padding:19px 0;min-height:66px}.work-num{font-size:22px}.work-name{font-size:clamp(20px,5.6vw,24px);overflow-wrap:anywhere}.arrow{font-size:24px}.detail{padding:0 0 22px 45px;font-size:15px;line-height:1.8}
- .split{grid-template-columns:minmax(0,1fr);gap:24px}.split h2{font-size:clamp(36px,9vw,48px)}.split p{font-size:15px;line-height:1.8}.soft-panel{padding:30px 25px}.soft-panel:after{inset:10px}.principles{grid-template-columns:minmax(0,1fr);margin-top:24px}.principle{padding:22px}
+ .hero{padding:42px 6% 52px}.hero:after{right:-35%;width:85%;height:75%;top:8%;opacity:.55}h1{font-size:clamp(43px,12vw,64px);overflow-wrap:anywhere}.eyebrow{font-size:11px;letter-spacing:.17em;margin-bottom:16px}.hero-subtitle{font-size:clamp(21px,6vw,28px)}.hero-copy{font-size:16px;line-height:1.8}.outline-button{width:100%;max-width:320px;padding:15px 16px;gap:12px;font-size:11px;letter-spacing:.12em}
+ .tags{margin:22px 0 28px;gap:8px;font-size:9px;letter-spacing:.1em}
+ .section{padding:42px 6%}.section-head{margin-bottom:24px}.section-title{font-size:clamp(40px,11vw,56px)}.section-sub{font-size:15px}.work-item{grid-template-columns:36px minmax(0,1fr) 22px;gap:9px;padding:15px 0;min-height:58px}.work-num{font-size:22px}.work-name{font-size:clamp(20px,5.6vw,24px);overflow-wrap:anywhere}.arrow{font-size:24px}.detail{padding:0 0 22px 45px;font-size:15px;line-height:1.8}
+ .split{grid-template-columns:minmax(0,1fr);gap:24px}.split h2{font-size:clamp(36px,9vw,48px)}.split p{font-size:15px;line-height:1.8}.soft-panel{padding:30px 25px}.soft-panel:after{inset:10px}
  footer{padding:22px 6%;flex-direction:column;gap:8px;font-size:11px;line-height:1.7}
 }
 @media(max-width:360px){.brand-logo{width:170px}.work-item{grid-template-columns:30px minmax(0,1fr) 18px;gap:7px}.work-name{font-size:19px}.detail{padding-left:37px}.tags{font-size:8px}}
@@ -101,7 +96,7 @@ footer{padding:24px 8%;display:flex;justify-content:space-between;gap:20px;max-w
     </a>
     <button class="menu-button" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span></button>
     <nav class="nav-panel" id="navPanel" aria-label="Main navigation">
-      <a href="#home">Home</a><a href="#work">My work</a><a href="#approach">My approach</a>
+      <a href="#home">Home</a><a href="#work">My work</a><a href="approach.html">My approach</a>
     </nav>
   </header>
 
@@ -125,46 +120,15 @@ footer{padding:24px 8%;display:flex;justify-content:space-between;gap:20px;max-w
         <p class="section-sub">Different disciplines, connected by a shared interest in balance, awareness and meaningful change. Select an area to read more.</p>
       </div>
       <div class="work-list">
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">01</span><span class="work-name">Energy Medicine</span><span class="arrow">→</span></div>
-        <div class="detail"><p>Healing, wellness and inner alignment begin by listening to the person as a whole. This complementary approach explores the relationship between body, emotion, awareness and lived experience.</p><p><em>It does not replace medical diagnosis, treatment or medication.</em></p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">02</span><span class="work-name">Sacred Alignment</span><span class="arrow">→</span></div>
-        <div class="detail"><p>A sound-based consciousness experience created to support stillness, presence and inner coherence. Sound becomes a field of resonance, silence, awareness and inner movement.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">03</span><span class="work-name">Atmi Sound</span><span class="arrow">→</span></div>
-        <div class="detail"><p>An exploration of sound, vibration and attentive listening, with space for reflection, creativity and a deeper relationship with the present moment.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">04</span><span class="work-name">Trance of the Divine</span><span class="arrow">→</span></div>
-        <div class="detail"><p>A contemplative creative space bringing together sound, presence and inner inquiry. Experiences and outcomes vary from person to person.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">05</span><span class="work-name">WAAIMA</span><span class="arrow">→</span></div>
-        <div class="detail"><p>A developing field within a wider practice of conscious living, creative exploration and human-centred systems.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">06</span><span class="work-name">Ātmigence</span><span class="arrow">→</span></div>
-        <div class="detail"><p>An inquiry into intelligence, awareness and the ways people and systems can act with greater clarity, context and responsibility.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">07</span><span class="work-name">Legal Consulting</span><span class="arrow">→</span></div>
-        <div class="detail"><p>Thoughtful legal and advisory work grounded in careful analysis, clear communication and responsible decision-making. Specific services can be discussed directly.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">08</span><span class="work-name">Civic Life</span><span class="arrow">→</span></div>
-        <div class="detail"><p>Engagement with public life, institutions and shared responsibility—with an emphasis on thoughtful participation and the common good.</p></div>
-        <div class="work-item" tabindex="0" role="button" aria-expanded="false"><span class="work-num">09</span><span class="work-name">Writings &amp; Reflections</span><span class="arrow">→</span></div>
-        <div class="detail"><p>Notes and reflections on alignment, consciousness, sound, law, civic life and the changing relationship between people and intelligent systems.</p></div>
-      </div>
-    </section>
-
-    <section class="section" id="approach">
-      <div class="split">
-        <div>
-          <p class="eyebrow">The philosophy</p>
-          <h2>One centre.<br><span class="gold">Many expressions.</span></h2>
-          <p>Alignment is the centre of this work. It means the different dimensions of a person begin to move together rather than against each other.</p>
-          <p>The body becomes more receptive. The mind becomes less scattered. Emotions can be met with greater care. A person can begin to return to a sense of inner order.</p>
-        </div>
-        <div class="soft-panel">
-          <span class="numbered">THE APPROACH</span>
-          <h2>Presence before answers.</h2>
-          <p>Healing is not presented as a promise, miracle or instant cure. It is understood as a process of listening, reflection and movement toward balance.</p>
-          <p>In this approach, alignment is not imposed from outside. It is invited from within.</p>
-        </div>
-      </div>
-      <div class="principles">
-        <article class="principle"><small>01 / PRESENCE</small><h3>Listen fully</h3><p>Make room for attention, honest reflection and the experience of the whole person.</p></article>
-        <article class="principle"><small>02 / BALANCE</small><h3>Find coherence</h3><p>Explore the connections between body, mind, emotion, values and everyday choices.</p></article>
-        <article class="principle"><small>03 / RESPONSIBILITY</small><h3>Act consciously</h3><p>Bring care, clarity and accountability to personal, professional and public life.</p></article>
+        <a class="work-item" href="topic.html?topic=point-1"><span class="work-num">01</span><span class="work-name">Energy Medicine</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-2"><span class="work-num">02</span><span class="work-name">Sacred Alignment</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-3"><span class="work-num">03</span><span class="work-name">Atmi Sound</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-4"><span class="work-num">04</span><span class="work-name">Trance of the Divine</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-5"><span class="work-num">05</span><span class="work-name">WAAIMA</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-6"><span class="work-num">06</span><span class="work-name">Ātmigence</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-7"><span class="work-num">07</span><span class="work-name">Legal Consulting</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-8"><span class="work-num">08</span><span class="work-name">Civic Life</span><span class="arrow">→</span></a>
+        <a class="work-item" href="topic.html?topic=point-9"><span class="work-num">09</span><span class="work-name">Writings &amp; Reflections</span><span class="arrow">→</span></a>
       </div>
     </section>
 
@@ -182,18 +146,6 @@ menuToggle.addEventListener('click',()=>{
 navPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   navPanel.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');
 }));
-const items=[...document.querySelectorAll('.work-item')];
-function toggleItem(item){
-  const detail=item.nextElementSibling;
-  const isOpen=detail.classList.toggle('open');
-  detail.setAttribute('aria-hidden',String(!isOpen));
-  item.setAttribute('aria-expanded',String(isOpen));
-}
-items.forEach(item=>{
-  item.nextElementSibling.setAttribute('aria-hidden','true');
-  item.addEventListener('click',()=>toggleItem(item));
-  item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleItem(item)}});
-});
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="Explore the work and approach of Dr Amit Kalyanji Saiya.">
+  <title>dAkS — My Work</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f5ef;
+      --ink: #171511;
+      --muted: #57534c;
+      --gold: #b99a51;
+      --line: #d9d1c3;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    .page { width: min(1120px, 100% - 64px); margin: 0 auto; }
+    .detail-header {
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+    }
+    .brand { display: inline-flex; align-items: center; }
+    .brand img { display: block; width: 190px; height: auto; }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .menu-button { border: 0; background: transparent; color: inherit; width: 46px; height: 46px; display: grid; place-items: center; cursor: pointer; }
+    .menu-button span, .menu-button span:before, .menu-button span:after { content: ""; display: block; width: 26px; height: 1.5px; background: currentColor; position: relative; transition: .25s; }
+    .menu-button span:before { position: absolute; top: -7px; }
+    .menu-button span:after { position: absolute; top: 7px; }
+    .nav-panel { display: none; position: absolute; right: 0; top: calc(100% - 1px); background: var(--paper); border: 1px solid var(--line); padding: 22px 28px; min-width: 220px; box-shadow: 0 18px 45px #00000012; }
+    .nav-panel.open { display: grid; gap: 14px; }
+    .nav-panel a { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+    .header-note, .eyebrow {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .header-note { margin: 0; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, .7fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 64px);
+      padding: clamp(48px, 7vw, 92px) 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 24px; }
+    .number { display: inline-block; margin-right: 14px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(54px, 8vw, 106px);
+      line-height: .98;
+      letter-spacing: -.065em;
+      text-wrap: balance;
+    }
+    .subtitle {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(21px, 2.5vw, 31px);
+      font-style: italic;
+      line-height: 1.35;
+    }
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 300px;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 50%, #b99a511c 0 24%, transparent 25%),
+        repeating-radial-gradient(ellipse at 50% 50%, transparent 0 17px, #b99a5132 18px 19px, transparent 20px 30px);
+      animation: arrive .8s ease-out both;
+    }
+    .hero-art::before, .hero-art::after {
+      content: "";
+      position: absolute;
+      width: 42%;
+      aspect-ratio: 1;
+      border: 1px solid #b99a5180;
+      border-radius: 50%;
+    }
+    .hero-art::after { width: 20%; background: var(--paper); }
+    .art-label {
+      position: absolute;
+      z-index: 1;
+      padding: 5px 10px;
+      background: var(--paper);
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 13px;
+      font-style: italic;
+    }
+    .art-label-one { top: 18%; left: 8%; }
+    .art-label-two { right: 7%; bottom: 17%; }
+    .introduction {
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: clamp(28px, 7vw, 96px);
+      padding: 50px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-label {
+      margin: 0;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: .08em;
+    }
+    .intro-copy {
+      margin: -8px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.5;
+      letter-spacing: -.025em;
+    }
+    .content-section { padding: 50px 0; }
+    .content-heading {
+      max-width: 720px;
+      margin: 12px 0 36px;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .feature-card {
+      min-height: 190px;
+      padding: 26px 26px 30px;
+      border: 1px solid var(--line);
+      background: #fffaf31c;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: #b99a51a8;
+      background: #b99a510d;
+    }
+    .feature-index { color: var(--gold); font-size: 12px; letter-spacing: .15em; }
+    .feature-card h3 { margin: 20px 0 9px; font-size: 25px; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .notice {
+      margin: 0 0 48px;
+      padding: 18px 22px;
+      border-left: 2px solid var(--gold);
+      background: #b99a510d;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .page-navigation {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0 36px;
+      border-top: 1px solid var(--line);
+    }
+    .page-navigation a {
+      width: fit-content;
+      padding: 12px 16px;
+      border: 1px solid var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease;
+    }
+    .page-navigation a:hover { background: var(--gold); color: var(--ink); }
+    .previous { justify-self: start; }
+    .all-work { justify-self: center; }
+    .next { justify-self: end; }
+    .page-count { color: var(--muted); font-family: var(--serif); font-size: 14px; }
+    .not-found { padding: 100px 0; }
+    .not-found[hidden] { display: none; }
+    .not-found h1 { font-size: clamp(44px, 7vw, 76px); }
+    .not-found p { color: var(--muted); }
+    .not-found a { color: var(--ink); }
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 40px, 560px); }
+      .detail-header { min-height: 76px; }
+      .brand img { width: 160px; }
+      .header-actions { gap: 8px; }
+      .menu-button { width: 44px; height: 44px; }
+      .nav-panel { right: 0; left: 0; padding: 20px 22px; z-index: 10; }
+      .nav-panel a { padding: 8px 0; }
+      .header-note { font-size: 9px; letter-spacing: .13em; }
+      .hero { grid-template-columns: 1fr; gap: 22px; padding: 48px 0 40px; }
+      h1 { font-size: clamp(52px, 13vw, 82px); }
+      .subtitle { margin-top: 18px; }
+      .hero-art { min-height: 210px; }
+      .introduction { grid-template-columns: 1fr; gap: 14px; padding: 34px 0; }
+      .intro-copy { margin: 0; }
+      .content-section { padding: 36px 0; }
+      .feature-grid { grid-template-columns: 1fr; gap: 10px; }
+      .feature-card { min-height: 0; padding: 22px; }
+      .feature-card h3 { margin-top: 12px; }
+      .notice { margin-bottom: 48px; }
+      .page-navigation { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .page-count { grid-column: 1 / -1; grid-row: 1; text-align: center; }
+      .page-navigation a { padding: 11px 12px; font-size: 10px; letter-spacing: .08em; }
+      .all-work { grid-column: 1 / -1; grid-row: 3; justify-self: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="detail-header">
+      <a class="brand" href="index.html#home" aria-label="dAkS home">
+        <img src="logo.png" alt="dAkS">
+      </a>
+      <div class="header-actions">
+        <p class="header-note">A considered practice</p>
+        <button class="menu-button" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+      </div>
+      <nav class="nav-panel" id="navPanel" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#work">My work</a>
+        <a href="approach.html">My approach</a>
+      </nav>
+    </header>
+
+    <main id="detailPage">
+      <section class="hero" aria-labelledby="topicTitle">
+        <div>
+          <p class="eyebrow"><span id="topicNumber" class="number"></span> / Explore my work</p>
+          <h1 id="topicTitle"></h1>
+          <p id="topicSubtitle" class="subtitle"></p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span id="artLabelOne" class="art-label art-label-one"></span>
+          <span id="artLabelTwo" class="art-label art-label-two"></span>
+        </div>
+      </section>
+
+      <section class="introduction" aria-labelledby="introLabel">
+        <p id="introLabel" class="section-label">The work</p>
+        <p id="topicIntroduction" class="intro-copy"></p>
+      </section>
+
+      <section class="content-section" aria-labelledby="featuresTitle">
+        <p class="eyebrow">A closer look</p>
+        <h2 id="featuresTitle" class="content-heading"></h2>
+        <div id="featureGrid" class="feature-grid"></div>
+      </section>
+
+      <p id="topicNotice" class="notice" hidden></p>
+
+      <nav class="page-navigation" aria-label="Explore other areas of work">
+        <a id="previousLink" class="previous" href="#"></a>
+        <span id="pageCount" class="page-count"></span>
+        <a class="all-work" href="index.html#work">← Back to Explore My Work</a>
+        <a id="nextLink" class="next" href="#"></a>
+      </nav>
+    </main>
+
+    <main id="notFound" class="not-found" hidden>
+      <p class="eyebrow">Explore my work</p>
+      <h1>This page could not be found.</h1>
+      <p>Choose an area from the full list of work.</p>
+      <a href="index.html#work">← Back to Explore My Work</a>
+    </main>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navPanel = document.getElementById('navPanel');
+    menuToggle.addEventListener('click', () => {
+      const opened = navPanel.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(opened));
+      menuToggle.setAttribute('aria-label', opened ? 'Close navigation' : 'Open navigation');
+    });
+    navPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navPanel.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+    const topics = [
+      {
+        slug: 'point-1',
+        legacySlug: 'energy-medicine',
+        title: 'Energy Medicine',
+        subtitle: 'Healing, Wellness & Inner Alignment',
+        introduction: 'Healing, wellness and inner alignment begin by listening to the person as a whole. This complementary approach explores the relationship between body, emotion, awareness and lived experience.',
+        art: ['Body', 'Awareness'],
+        featureHeading: 'A whole-person perspective.',
+        features: [
+          ['01 / ATTENTION', 'Listen to the whole person', 'Make space for the person’s experience, context and individual needs.'],
+          ['02 / REFLECTION', 'Notice connections', 'Explore how body, emotion and awareness may relate to everyday experience.'],
+          ['03 / RESPONSIBILITY', 'Keep care grounded', 'Approach wellbeing with care, clear boundaries and respect for established healthcare.']
+        ],
+        details: [
+          ['An attentive process', 'The emphasis is on observation, presence and thoughtful reflection—not promises of a particular result. Each person’s experience is their own.'],
+          ['Complementary in nature', 'This approach is not a substitute for medical diagnosis or treatment. Continue to follow qualified medical advice and prescribed care.']
+        ],
+        notice: 'Energy Medicine is complementary and does not replace medical diagnosis, treatment or medication.'
+      },
+      {
+        slug: 'point-2',
+        legacySlug: 'sacred-alignment',
+        title: 'Sacred Alignment',
+        subtitle: 'Sound, Stillness & Inner Coherence',
+        introduction: 'A sound-based consciousness experience created to support stillness, presence and inner coherence. Sound becomes a field for resonance, silence, awareness and inner movement.',
+        art: ['Resonance', 'Stillness'],
+        featureHeading: 'Listening as a practice.',
+        features: [
+          ['01 / SOUND', 'A space for resonance', 'Use sound as an invitation to pause and notice, rather than something to perform or achieve.'],
+          ['02 / STILLNESS', 'Make room for quiet', 'Let moments of silence sit alongside the sound and shape the experience.'],
+          ['03 / PRESENCE', 'Return to the moment', 'Bring gentle attention to what is felt and noticed in the present.']
+        ],
+        details: [
+          ['An individual experience', 'People respond to sound in different ways. There is no single expected response or guaranteed outcome.'],
+          ['A considered environment', 'The experience is approached with care for personal comfort, boundaries and the freedom to participate at one’s own pace.']
+        ]
+      },
+      {
+        slug: 'point-3',
+        legacySlug: 'atmi-sound',
+        title: 'Atmi Sound',
+        subtitle: 'Listening, Creativity & Presence',
+        introduction: 'An exploration of sound, vibration and attentive listening, with space for reflection, creativity and a deeper relationship with the present moment.',
+        art: ['Sound', 'Listening'],
+        featureHeading: 'Sound, heard with attention.',
+        features: [
+          ['01 / LISTEN', 'Notice more closely', 'Give attention to tone, rhythm, silence and the way sound is experienced.'],
+          ['02 / EXPLORE', 'Stay curious', 'Make room for creative exploration without requiring a fixed interpretation.'],
+          ['03 / REFLECT', 'Connect to the present', 'Use attentive listening as a starting point for individual reflection.']
+        ],
+        details: []
+      },
+      {
+        slug: 'point-4',
+        legacySlug: 'trance-of-the-divine',
+        title: 'Trance of the Divine',
+        subtitle: 'Presence, Inquiry & Inner Experience',
+        introduction: 'A contemplative creative space bringing together sound, presence and inner inquiry. Experiences and outcomes naturally vary from person to person.',
+        art: ['Inquiry', 'Presence'],
+        featureHeading: 'An invitation to explore.',
+        features: [
+          ['01 / ARRIVE', 'Begin with presence', 'Take time to settle into the experience without pressure to reach a particular state.'],
+          ['02 / INQUIRE', 'Follow what arises', 'Allow space for personal reflection, curiosity and individual meaning.'],
+          ['03 / INTEGRATE', 'Return with care', 'Leave room to reflect on the experience in a grounded, personal way.']
+        ],
+        details: [
+          ['No prescribed outcome', 'This is a contemplative creative experience, not a promise of transformation or a specific result.'],
+          ['Personal boundaries matter', 'Participation should feel comfortable. Personal choice, self-awareness and individual limits remain important throughout.']
+        ]
+      },
+      {
+        slug: 'point-5',
+        legacySlug: 'waaima',
+        title: 'WAAIMA',
+        subtitle: 'Conscious Living & Human-Centred Systems',
+        introduction: 'A developing field within a wider practice of conscious living, creative exploration and human-centred systems.',
+        art: ['People', 'Systems'],
+        featureHeading: 'A developing field of practice.',
+        features: [
+          ['01 / AWARENESS', 'Begin with attention', 'Notice how choices, habits and relationships shape the experience of everyday life.'],
+          ['02 / CONNECTION', 'See the wider context', 'Consider the relationship between individuals, communities and the systems around them.'],
+          ['03 / PRACTICE', 'Bring ideas into life', 'Explore conscious living as an ongoing practice rather than a fixed formula.']
+        ],
+        details: [
+          ['Human-centred by design', 'The inquiry places human experience, context and responsibility at the centre of how systems are considered.'],
+          ['Still taking shape', 'WAAIMA is a developing area of work. Its ideas are explored through continued reflection and creative practice.']
+        ]
+      },
+      {
+        slug: 'point-6',
+        legacySlug: 'atmigence',
+        title: 'Ātmigence',
+        subtitle: 'Intelligence, Awareness & Responsibility',
+        introduction: 'An inquiry into intelligence, awareness and the ways people and systems can act with greater clarity, context and responsibility.',
+        art: ['Clarity', 'Context'],
+        featureHeading: 'Intelligence with awareness.',
+        features: [
+          ['01 / CLARITY', 'Understand the context', 'Look beyond isolated information to the circumstances and people affected by a decision.'],
+          ['02 / JUDGEMENT', 'Bring discernment', 'Consider how knowledge, awareness and human judgement work together.'],
+          ['03 / ETHICS', 'Act responsibly', 'Keep accountability and human impact in view as intelligent systems evolve.']
+        ],
+        details: [
+          ['A continuing inquiry', 'Ātmigence explores the relationship between intelligence and awareness as an evolving area of thought and practice.'],
+          ['Human responsibility', 'Tools and systems do not remove the need for careful judgement, context and accountability.']
+        ]
+      },
+      {
+        slug: 'point-7',
+        legacySlug: 'legal-consulting',
+        title: 'Legal Consulting',
+        subtitle: 'Clear Analysis & Responsible Guidance',
+        introduction: 'Thoughtful legal and advisory work grounded in careful analysis, clear communication and responsible decision-making.',
+        art: ['Analysis', 'Clarity'],
+        featureHeading: 'A considered approach to advice.',
+        features: [
+          ['01 / UNDERSTAND', 'Start with the facts', 'Take time to understand the matter, its context and the questions that need attention.'],
+          ['02 / ANALYSE', 'Consider the issues', 'Approach legal questions with care, structure and attention to relevant detail.'],
+          ['03 / COMMUNICATE', 'Make next steps clear', 'Value clear communication to support informed and responsible decisions.']
+        ],
+        details: [
+          ['Practical and thoughtful', 'The emphasis is on careful analysis and clear discussion of the specific matter presented.'],
+          ['Discuss the scope directly', 'Specific services, availability and suitability can be discussed directly before any engagement.']
+        ]
+      },
+      {
+        slug: 'point-8',
+        legacySlug: 'civic-life',
+        title: 'Civic Life',
+        subtitle: 'Public Responsibility & The Common Good',
+        introduction: 'Engagement with public life, institutions and shared responsibility—with an emphasis on thoughtful participation and the common good.',
+        art: ['Community', 'Common good'],
+        featureHeading: 'Participation shaped by care.',
+        features: [
+          ['01 / PARTICIPATE', 'Take part thoughtfully', 'Approach public life with curiosity, attention and respect for different experiences.'],
+          ['02 / RESPONSIBILITY', 'Recognise shared impact', 'Consider how individual choices connect with institutions and the wider community.'],
+          ['03 / STEWARDSHIP', 'Keep the common good in view', 'Value care, accountability and long-term thinking in civic conversations.']
+        ],
+        details: [
+          ['A continuing engagement', 'Civic life is an ongoing relationship with shared spaces, public institutions and one another.'],
+          ['Thoughtful contribution', 'The focus is on considered participation and the responsibilities that accompany it.']
+        ]
+      },
+      {
+        slug: 'point-9',
+        legacySlug: 'writings-reflections',
+        title: 'Writings & Reflections',
+        subtitle: 'Consciousness, Law, Sound & Meaning',
+        introduction: 'Notes and reflections on alignment, consciousness, sound, law, civic life and the changing relationship between people and intelligent systems.',
+        art: ['Ideas', 'Reflection'],
+        featureHeading: 'Ideas considered from many angles.',
+        features: [
+          ['01 / OBSERVE', 'Look with attention', 'Begin with questions drawn from experience, practice and the world around us.'],
+          ['02 / CONNECT', 'Bring disciplines together', 'Explore where consciousness, sound, law, civic life and technology intersect.'],
+          ['03 / REFLECT', 'Leave space for thought', 'Offer perspectives to consider, rather than insisting on one final answer.']
+        ],
+        details: [
+          ['An evolving collection', 'These reflections develop as the work and the questions surrounding it continue to evolve.'],
+          ['For shared inquiry', 'The intention is to encourage thoughtful reading, dialogue and continued exploration.']
+        ]
+      }
+    ];
+
+    const legacyRoutes = new Map(topics.map(topic => [topic.legacySlug, topic.slug]));
+    const requestedSlug = new URLSearchParams(window.location.search).get('topic');
+    const routeSlug = window.location.pathname.match(/\/work\/(point-[1-9])\/?$/)?.[1];
+    const slug = routeSlug || (requestedSlug && (legacyRoutes.get(requestedSlug) || requestedSlug));
+    const topicIndex = topics.findIndex(topic => topic.slug === slug);
+
+    if (topicIndex === -1) {
+      document.getElementById('detailPage').hidden = true;
+      document.getElementById('notFound').hidden = false;
+      document.title = 'dAkS — Page not found';
+    } else {
+      const topic = topics[topicIndex];
+      const previous = topics[topicIndex - 1];
+      const next = topics[topicIndex + 1];
+      document.title = `dAkS — ${topic.title}`;
+      document.getElementById('topicNumber').textContent = String(topicIndex + 1).padStart(2, '0');
+      document.getElementById('topicTitle').textContent = topic.title;
+      document.getElementById('topicSubtitle').textContent = topic.subtitle;
+      document.getElementById('topicIntroduction').textContent = topic.introduction;
+      document.getElementById('featuresTitle').textContent = topic.featureHeading;
+      document.getElementById('artLabelOne').textContent = topic.art[0];
+      document.getElementById('artLabelTwo').textContent = topic.art[1];
+      document.getElementById('pageCount').textContent = `${String(topicIndex + 1).padStart(2, '0')} / 09`;
+
+      const featureGrid = document.getElementById('featureGrid');
+      topic.features.forEach(([index, title, description]) => {
+        const card = document.createElement('article');
+        card.className = 'feature-card';
+        const marker = document.createElement('span');
+        marker.className = 'feature-index';
+        marker.textContent = index;
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const copy = document.createElement('p');
+        copy.textContent = description;
+        card.append(marker, heading, copy);
+        featureGrid.appendChild(card);
+      });
+
+      if (topic.notice) {
+        const notice = document.getElementById('topicNotice');
+        notice.textContent = topic.notice;
+        notice.hidden = false;
+      }
+
+      const previousLink = document.getElementById('previousLink');
+      const nextLink = document.getElementById('nextLink');
+      if (previous) {
+        previousLink.href = `topic.html?topic=${previous.slug}`;
+        previousLink.textContent = `← ${previous.title}`;
+      } else {
+        previousLink.hidden = true;
+      }
+      if (next) {
+        nextLink.href = `topic.html?topic=${next.slug}`;
+        nextLink.textContent = `${next.title} →`;
+      } else {
+        nextLink.hidden = true;
+      }
+    }
+  </script>
+</body>
+</html>
